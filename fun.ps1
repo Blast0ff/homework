@@ -2,7 +2,7 @@
 
 #duplicate check incase we need to modify for if a target is user not local admin
 
-if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administrator')) {
+if(!([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] 'Administratorer')) {
 Enable-PSRemoting
 Add-LocalGroupMember -Group Administratorer -WhatIf locker\templateuser
 Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
